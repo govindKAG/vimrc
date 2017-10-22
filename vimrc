@@ -1,60 +1,24 @@
-" For this to work, you must install the vundle plugin manually.
-" https://github.com/gmarik/vundle
-" To install vundle, copy all the files from the repo into your respective
-" folders within ~/.vim
 set nocompatible " Fuck VI... That's for grandpas.
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
-" Vundle let's you specify a plugin in a number of formats, but my favorite
-" allows you to grab plugins straight off of github, just specify the bundle
-" in the following format:
-" Bundle 'githubUsername/repoName'
-
-" Let vundle manage itself:
 Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
-" Just a shitload of color schemes.
-" https://github.com/flazz/vim-colorschemes#current-colorschemes
 Bundle 'flazz/vim-colorschemes'
 Bundle 'vim-scripts/AutoComplPop'
 
-" Fuzzy finder -- absolutely must have.
-Bundle 'kien/ctrlp.vim'
 Bundle 'jiangmiao/auto-pairs'
-" Support r easily toggling comments.
-"Bundle 'tpope/vim-commentary'
-
-" In addtion to the above plugins, you'll likely need some for individual
-" non-standard syntaxes that aren't pre-bundled with vim. Here are some I use,
-" these are required for me, but depending on what code you write, obviously
-" this may differ for you.
-
-" Proper JSON filetype detection, and support.
+Bundle 'kien/ctrlp.vim'
+Bundle 'zeekay/vim-beautify'
 Bundle 'leshill/vim-json'
-
-" vim already has syntax support for javascript, but the indent support is
-" horrid. This fixes that.
-"Bundle 'pangloss/vim-javascript'
-
-" vim indents HTML very poorly on it's own. This fixes a lot of that.
 Bundle 'indenthtml.vim'
-
-" I write markdown a lot. This is a good syntax.
 Bundle 'tpope/vim-markdown'
-
-" LessCSS -- I use this every day.
-"Bundle 'groenewege/vim-less'
-
-" Coffee-script syntax.
-"Bundle 'kchmck/vim-coffee-script'
-
-
-" We have to turn this stuff back on if we want all of our features.
+Bundle 'tpope/vim-fugitive'
+Bundle 'chriskempson/base16-vim'
 filetype plugin indent on " Filetype auto-detection
 syntax on " Syntax highlighting
 set number
@@ -100,8 +64,12 @@ vnoremap ; :
 inoremap jf <esc>
 
 " create new vsplit, and switch to it.
-noremap <leader>v <C-w>v
 
+noremap <leader>v <C-w>v
+" try at making ctrl p nav easy 
+noremap <leader>f :CtrlP 
+" mapping for nerdtree  
+noremap <leader>n :NERDTree 
 " bindings for easy split nav
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -141,9 +109,10 @@ let g:ctrlp_map = '<c-t>'
 let g:ctrlp_max_height = 30
 
 
-" Finally the color scheme. Choose whichever you want from the list in the
-" link above (back up where we included the bundle of a ton of themes.)
-colorscheme Dracula
+
+"colorscheme tomorrow-night-eighties
+let base16colorspace=256
+colorscheme Tomorrow-night
 
 set guifont=Inconsolata\ for\ Powerline:h15
 let g:Powerline_symbols = 'fancy'
