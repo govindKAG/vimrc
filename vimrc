@@ -5,20 +5,42 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'vim-scripts/AutoComplPop'
 
+Bundle 'ajmwagar/vim-deus'
+Bundle 'chriskempson/base16-vim'
+Bundle 'indenthtml.vim'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'kien/ctrlp.vim'
-Bundle 'zeekay/vim-beautify'
 Bundle 'leshill/vim-json'
-Bundle 'indenthtml.vim'
-Bundle 'tpope/vim-markdown'
+Bundle 'myusuf3/numbers.vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'chriskempson/base16-vim'
+Bundle 'tpope/vim-markdown'
+Bundle 'zeekay/vim-beautify'
+
+
+
+let g:airline_theme='deus'
+"vim-airline"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+  endif
+  let g:airline_symbols.space = "\ua0"
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
+
+
 filetype plugin indent on " Filetype auto-detection
 syntax on " Syntax highlighting
 set number
@@ -52,6 +74,7 @@ set gdefault " use the `g` flag by default.
 set virtualedit+=block
 
 
+nnoremap <F3> :NumbersToggle <CR>
 " You'll see it a lot below as <leader>
 let mapleader = ","
 
