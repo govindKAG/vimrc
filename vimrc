@@ -1,4 +1,3 @@
-set nocompatible " Fuck VI... That's for grandpas.
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
